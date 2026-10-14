@@ -8,8 +8,8 @@ import os
 import webbrowser
 
 ROOT = Path(__file__).resolve().parent
-HOST = "127.0.0.1"
-PORT = 8765
+HOST = os.environ.get("HOST", "127.0.0.1")
+PORT = int(os.environ.get("PORT", "8765"))
 TEXT_MODEL = "gemini-3.5-flash-lite"
 IMAGE_MODEL = "@cf/black-forest-labs/flux-2-klein-4b"
 GEMINI_API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/{TEXT_MODEL}:generateContent"
