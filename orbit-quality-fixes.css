@@ -1,0 +1,45 @@
+/* Shared layout, theme and motion fixes. */
+.brand{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:0!important;height:108px!important;min-height:108px!important;max-height:108px!important;padding:0 8px 14px!important;overflow:visible!important}.brand .orbit-logo-crop{position:relative!important;display:block!important;width:190px!important;max-width:100%!important;height:80px!important;min-height:80px!important;overflow:hidden!important;flex:none!important}.brand .orbit-logo-crop img{position:static!important;display:block!important;width:190px!important;height:80px!important;max-width:100%!important;object-fit:contain!important;object-position:left center!important;transform:none!important;mix-blend-mode:multiply!important}body:not(.light-theme) .brand .orbit-logo-crop img{filter:invert(1)!important;mix-blend-mode:screen!important}
+.workspace{position:relative;z-index:1;margin-top:0!important}
+.grid.mid,.grid.lower,.grid.bottom,.campaign-layout,.audience-view{align-items:start}
+.campaign-layout>.card,.audience-view>.card,.audience-view>div>.card{align-self:start;height:auto;min-height:0}
+#agent .campaign-layout{grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr)}
+#agentOutput .field{min-width:0}
+#agentVisualPrompt.visual-prompt{display:block;min-height:64px;padding:17px 19px;border:1px solid #477d5d;border-radius:14px;background:#203027;color:#f5fff6!important;font-size:14px!important;line-height:1.7!important;white-space:pre-wrap;overflow-wrap:anywhere}
+body.light-theme #agentVisualPrompt.visual-prompt{background:#f3f8f2!important;color:#17251f!important;border-color:#c8d9ca!important}
+.view.active{animation:orbitViewEnter .24s ease both}
+@keyframes orbitViewEnter{from{opacity:.3;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+body,.sidebar,.topbar,.content,.card,.workspace,.help,.field input,.field textarea,.field select,.select,.btn,.iconbtn,.theme-toggle,.insight,.chip,.notifications-panel,.calendar-post,.scheduleDialog,.twin-result{transition:background-color .28s ease,color .28s ease,border-color .28s ease,box-shadow .28s ease}
+.iconbtn{display:grid;place-items:center;position:relative}
+.iconbtn svg{display:block;color:currentColor}
+.theme-toggle #themeIcon{display:grid;place-items:center;line-height:1}
+.theme-toggle #themeIcon svg{width:14px;height:14px;display:block}
+.notifications-panel{color:var(--ink)}
+.notification-item{color:var(--ink)}
+.notification-item[aria-current="true"]{opacity:.62}
+#twinResult[hidden]{display:none!important}
+#twinValidation{min-height:18px;margin:8px 0 0;color:var(--muted);font-size:11px;line-height:1.5}
+.interest-prediction-card{margin-top:16px}
+.interest-prediction-card .prediction-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 18px}
+.interest-prediction-card .prediction-row{display:grid;grid-template-columns:minmax(115px, .8fr) minmax(100px, 1.5fr) 44px;gap:12px;align-items:center;padding:11px 12px;border-radius:10px;background:var(--paper);color:var(--ink)}
+.interest-prediction-card .prediction-label{font-size:12px;font-weight:650}
+.interest-prediction-card .prediction-track{height:10px;overflow:hidden;border-radius:999px;background:var(--line)}
+.interest-prediction-card .prediction-track i{display:block;width:0;height:100%;border-radius:inherit;background:linear-gradient(90deg,#35b879,#a6e970);transition:width .65s cubic-bezier(.2,.8,.2,1)}
+.interest-prediction-card .prediction-value{text-align:right;font-size:12px;font-weight:700;color:var(--green)}
+.interest-prediction-card .prediction-note{margin:12px 0 0;color:var(--muted);font-size:11px;line-height:1.55}
+@media(max-width:760px){#agent .campaign-layout{grid-template-columns:1fr}.interest-prediction-card .prediction-grid{grid-template-columns:1fr}.brand .orbit-logo-crop{height:52px!important;min-height:52px!important}.brand .orbit-logo-crop img{height:52px!important}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* Audience Lab: place the training snapshot beside the segments. */
+#audience .audience-view{grid-template-columns:minmax(0,1.12fr) minmax(300px,.88fr)!important;align-items:start}
+#audience .audience-view>div:last-child{display:block!important}
+#audience .training-snapshot-card{grid-column:2;grid-row:1;align-self:start;margin:0!important}
+#audience .training-snapshot{display:grid;grid-template-columns:1fr;gap:12px}
+#audience .training-snapshot-item{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--paper)}
+#audience .training-snapshot-item small{color:var(--muted)}
+#audience .training-snapshot-item b{font-size:16px}
+/* Keep native option menus legible in dark and light themes. */
+body:not(.light-theme) select option{background:#17221b;color:#f1f6f2}
+body.light-theme select option{background:#fff;color:#1b2921}
+@media(max-width:900px){#audience .audience-view{grid-template-columns:1fr!important}#audience .training-snapshot-card{grid-column:1;grid-row:auto}}
+@media(max-width:760px){.brand{height:82px!important;min-height:82px!important;max-height:82px!important}.brand .orbit-logo-crop,.brand .orbit-logo-crop img{height:62px!important;min-height:62px!important}}
